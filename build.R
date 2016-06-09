@@ -1,0 +1,23 @@
+try(detach("package:tidyr", unload = TRUE))
+try(detach("package:dplyr", unload = TRUE))
+library(MASS)
+library(knitr)
+library(ggplot2)
+library(scales)
+library(ggrepel)
+library(Cairo)
+library(extrafont)
+library(mgcv)
+library(ggmap)
+library(ggthemes)
+library(directlabels)
+library(tidyr)
+library(dplyr)
+library(gridExtra)
+library(stargazer)
+library(xtable)
+
+theme_set(theme_minimal(base_family = "Calibri"))
+
+knit2pdf("ellis-mtagdp.Rnw", compiler = "XeLaTeX")
+
