@@ -48,13 +48,13 @@ the_data %>%
                colour = "grey90", size = 0.1) +
     geom_point() +
     geom_text(aes(label = TA, x = CAGR10 + 0.003), colour = "grey50", 
-              hjust = 0, vjust = 0.5, size = 2, family = "Calibri") +
+              hjust = 0, vjust = 0.5, size = 2, family = TheFont) +
     scale_colour_gradientn("Proportion\nAgriculture\nin 2005",
                        colours = brewer.pal(8, "RdYlBu"),
                        label = percent) +
     scale_x_continuous("", label = percent) +
     labs(y = "") +
-    theme_tufte(base_family = "Calibri") +
+    theme_tufte(base_family = TheFont) +
     theme(axis.text.y = element_blank(),
           axis.line.y = element_blank())
 )
@@ -64,7 +64,7 @@ p1 <- ggplot(the_data, aes(x = Ag2005, y = CAGR10)) +
     geom_point(aes(colour = Ag2005))  +
     geom_point(shape = 1) +
     geom_text_repel(aes(label = outlier), colour = "steelblue", 
-                    family = "Calibri", segment.color = NA) +
+                    family = TheFont, segment.color = NA) +
     geom_smooth(method = "rlm") +
     scale_colour_gradientn("Proportion Agriculture in 2005",
                            colours = brewer.pal(8, "RdYlBu"),
@@ -88,7 +88,7 @@ dev.off()
 sp2 <- spearman2(CAGR10 ~ Ag2005 + GDPpp2005 + long.centre + lat.centre, data = the_data)
 
 CairoPDF("figures/spearman.pdf", 8, 3.5)
-par(family = "Calibri", bty = "l")
+par(family = TheFont, bty = "l")
 plot(sp2)
 dev.off()
 model <- gam(CAGR10 ~ Ag2005 + GDPpp2005 + s(long.centre, lat.centre, k = 5), data = the_data)
@@ -126,7 +126,7 @@ ggplot(the_grid, aes(x = long.centre, y = lat.centre, z = pred * 100)) +
     geom_raster(aes(fill = pred), interpolate = TRUE) +
     geom_contour(aes(colour = ..level.. )) +
     borders("nz", colour = "grey20") +
-    mbie::theme_nothing(base_family = "Calibri") +
+    mbie::theme_nothing(base_family = TheFont) +
     coord_equal() +
     scale_fill_gradientn("Average annual\ngrowth", colours = brewer.pal(8, "RdYlBu"), label = percent),
 method="bottom.pieces"

@@ -18,12 +18,12 @@ x[is.na(x)] <- 0
 x <- t(scale(t(x)))
 
 CairoPDF("figures/ta-associations.pdf", 8, 8)
-par(family = "Calibri")
+par(family = TheFont)
 plot(diana(x), which = 2, main = "", xlab = "", cex = 0.9)
 dev.off()
 
 CairoPDF("figures/industry-associations.pdf", 8, 11)
-par(family = "Calibri")
+par(family = TheFont)
 plot(diana(t(x)), which.plots = 2, main = "", xlab = "", cex = 0.9)
 dev.off()
 
@@ -47,7 +47,7 @@ CairoPDF("figures/construction-map.pdf", 8, 8)
 ggplot(tmp, aes(x = long, y = lat, group = group, fill = cagr)) +
     geom_polygon() +
     coord_map() +
-    mbie::theme_nothing(base_family = "Calibri") +
+    mbie::theme_nothing(base_family = TheFont) +
     scale_fill_gradientn("Growth per year",
                          colours = brewer.pal(8, "RdYlBu"), limits = c(-.1, .1),
                          label = percent) +
@@ -72,7 +72,7 @@ CairoPDF("figures/gdp-pp-map.pdf", 8, 8)
 ggplot(tmp, aes(x = long, y = lat, group = group, fill = cagr)) +
     geom_polygon() +
     coord_map() +
-    mbie::theme_nothing(base_family = "Calibri") +
+    mbie::theme_nothing(base_family = TheFont) +
     scale_fill_gradientn("Growth per year",
                          colours = brewer.pal(8, "RdYlBu"), limits = c(-.08, .08),
                          label = percent) +
@@ -120,7 +120,7 @@ TAGDP_public %>%
               GDP_real2013 = sum(GDP_real[Year == 2013])) %>%
     ggplot(aes(x = GDP_real2013, y = CAGR8, label = str_wrap(RGDP_industry, 28))) +
     geom_point() +
-    geom_text_repel(colour = "steelblue", family = "Calibri") +
+    geom_text_repel(colour = "steelblue", family = TheFont) +
     scale_x_log10("Real GDP in 2013 ($m, logarithmic scale)", breaks = c(1, 3.3, 10, 33)) +
     scale_y_continuous("Eight year average growth rate", label = percent)
 dev.off()

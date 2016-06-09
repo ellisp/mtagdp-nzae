@@ -3,7 +3,7 @@ Pal1 <- brewer.pal(9, "Pastel1")
 Pal2 <- brewer.pal(8, "Pastel2")
 
 CairoPDF("figures/sankey_taranakiConstruction.pdf",11, 9)
-par(family = "Calibri")
+par(family = TheFont)
 
 the_region <- "Taranaki"
 the_ind <- "Construction"
@@ -102,7 +102,7 @@ if (nrow(TATots) > 1 | nrow(TAIndTots) != nrow(TATots)){
     
     plot(r, default_style = st, plot_area = 0.9)
     grid.text(paste(the_region, the_ind), 0.5, 0.95,
-              gp = gpar(fontfamily = "Calibri", fontface = "bold", fontsize = 17))
+              gp = gpar(fontfamily = TheFont, fontface = "bold", fontsize = 17))
 }
 
 

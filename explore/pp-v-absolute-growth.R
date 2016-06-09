@@ -15,7 +15,7 @@ totals <- mtagdp_totals %>%
 CairoPDF("figures/pp-scatter.pdf", 9, 8)
 print(ggplot(totals, (aes(x = RealGrowthPP, y = RealGrowth))) +
     geom_point() +
-    geom_text_repel(aes(label = TA), colour = "steelblue", family = "Calibri") +
+    geom_text_repel(aes(label = TA), colour = "steelblue", family = TheFont) +
     scale_x_continuous("Real GDP growth per person", label = percent) +
     scale_y_continuous("Real GDP growth", label = percent) +
     coord_equal())

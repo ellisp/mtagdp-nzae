@@ -26,7 +26,8 @@ library(ggseas)
 library(riverplot)
 library(sqldf)
 
-theme_set(theme_minimal(base_family = "Calibri"))
+TheFont <- "Georgia"
+theme_set(theme_minimal(base_family = "TheFont"))
 
 
 load("data/TAGDP_public.rda")
@@ -35,6 +36,10 @@ load("data/mtagdp_totals.rda")
 
 
 source("explore/explore1.R")
+source("explore/dot_ribbon.R")
+source("explore/modelling-ag.R")
+source("explore/pp-v-absolute-growth.R")
+source("explore/sankey.R")
 
 knit2pdf("ellis-mtagdp.Rnw", compiler = "XeLaTeX")
 

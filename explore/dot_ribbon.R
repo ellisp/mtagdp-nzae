@@ -24,7 +24,7 @@ totals$TA <- factor(totals$TA, levels = rev(levels(totals$TA)))  ## order needs 
 p1 <- totals %>%
     ggplot(aes(x = TA, size = GDP, colour = Growth, y = Growth)) +
     coord_flip() +
-    theme_minimal(10, base_family = "Calibri") +
+    theme_minimal(10, base_family = TheFont) +
     geom_point() +
     geom_point(colour = "black", shape = 1) +
     geom_smooth(aes(group=1), colour=alpha("grey", 0.05), show_guide=FALSE) +
