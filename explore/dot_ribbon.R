@@ -1,4 +1,4 @@
-library(ggseas)
+
 
 ## this function is just a stub, need a more general function to deal with other geographical nuances
 source("R/organise_geographies.R")

@@ -1,16 +1,4 @@
-library(dplyr)
-library(tidyr)
-library(rms)
-library(ggplot2)
-library(scales)
-library(cluster)
-library(Cairo)
-library(mbie)
-library(mbiemaps)
-library(RColorBrewer)
-library(stringr)
 
-load("data/TAGDP_public.rda")
 
 #===============cluster analysis=============
 x <- TAGDP_public %>%

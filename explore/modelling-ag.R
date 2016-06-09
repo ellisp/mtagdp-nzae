@@ -1,4 +1,4 @@
-library(stargazer)
+
 
 snapshot_2005 <- TAGDP_public %>%
     group_by(TA) %>%

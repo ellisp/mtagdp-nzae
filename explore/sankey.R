@@ -1,6 +1,4 @@
 ## example sankey chart
-library(riverplot)
-library(sqldf)
 Pal1 <- brewer.pal(9, "Pastel1")
 Pal2 <- brewer.pal(8, "Pastel2")
 
