@@ -1,3 +1,5 @@
+install_github("nz-mbie/mbie-r-package-public/pkg")
+install_github("nz-mbie/mbiemaps-public/pkg")
 try(detach("package:tidyr", unload = TRUE))
 try(detach("package:dplyr", unload = TRUE))
 library(MASS)
@@ -26,13 +28,13 @@ library(ggseas)
 library(riverplot)
 library(sqldf)
 
-TheFont <- "Georgia"
-theme_set(theme_minimal(base_family = "TheFont"))
+TheFont <- "Times New Roman"
+theme_set(theme_minimal(base_family = TheFont))
 
 
 load("data/TAGDP_public.rda")
 load("data/mtagdp_totals.rda")
-
+data(ta_simpl_gg)
 
 
 source("explore/explore1.R")
@@ -41,5 +43,5 @@ source("explore/modelling-ag.R")
 source("explore/pp-v-absolute-growth.R")
 source("explore/sankey.R")
 
-knit2pdf("ellis-mtagdp.Rnw", compiler = "XeLaTeX")
+knit2pdf("ellis-mtagdp.Rnw")
 

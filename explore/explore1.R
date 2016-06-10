@@ -1,5 +1,3 @@
-
-
 #===============cluster analysis=============
 x <- TAGDP_public %>%
     filter(Year == 2013) %>%
@@ -44,7 +42,8 @@ tmp <- ta_simpl_gg %>%
     arrange(order)
 
 CairoPDF("figures/construction-map.pdf", 8, 8)
-ggplot(tmp, aes(x = long, y = lat, group = group, fill = cagr)) +
+print(
+    ggplot(tmp, aes(x = long, y = lat, group = group, fill = cagr)) +
     geom_polygon() +
     coord_map() +
     mbie::theme_nothing(base_family = TheFont) +
@@ -52,6 +51,7 @@ ggplot(tmp, aes(x = long, y = lat, group = group, fill = cagr)) +
                          colours = brewer.pal(8, "RdYlBu"), limits = c(-.1, .1),
                          label = percent) +
     theme(legend.position = c(0.2, 0.7))
+)
 dev.off()
 
 
@@ -69,6 +69,7 @@ tmp <- ta_simpl_gg %>%
     arrange(order)
 
 CairoPDF("figures/gdp-pp-map.pdf", 8, 8)
+print(
 ggplot(tmp, aes(x = long, y = lat, group = group, fill = cagr)) +
     geom_polygon() +
     coord_map() +
@@ -77,6 +78,7 @@ ggplot(tmp, aes(x = long, y = lat, group = group, fill = cagr)) +
                          colours = brewer.pal(8, "RdYlBu"), limits = c(-.08, .08),
                          label = percent) +
     theme(legend.position = c(0.2, 0.7))
+)
 dev.off()
 
 
@@ -101,19 +103,20 @@ labels <- opotiki %>%
     filter(Year == year_label) 
 
 
-print(opotiki %>%
-    filter(NGDP_industry %in% unique(big_industries$NGDP_industry)) %>%
-    ggplot(aes(x = Year, y = GDP_real, colour = NGDP_industry)) +
-    geom_line() +
-    geom_text_repel(data = labels, 
-              aes(label = str_wrap(NGDP_industry, 27)), fontface = "bold") +
-    theme(legend.position = "none") +
-    labs(y = "Real GDP ($m)"))
+# print(opotiki %>%
+#     filter(NGDP_industry %in% unique(big_industries$NGDP_industry)) %>%
+#     ggplot(aes(x = Year, y = GDP_real, colour = NGDP_industry)) +
+#     geom_line() +
+#     geom_text_repel(data = labels, 
+#               aes(label = str_wrap(NGDP_industry, 27)), fontface = "bold") +
+#     theme(legend.position = "none") +
+#     labs(y = "Real GDP ($m)"))
 
 
 
 CairoPDF("figures/opotiki.pdf", 11, 11)
-TAGDP_public %>%
+print(
+    TAGDP_public %>%
     filter(TA == "Opotiki District") %>%
     group_by(RGDP_industry) %>%
     summarise(CAGR8 = CAGR(sum(GDP_real[Year == 2013]) / sum(GDP_real[Year == 2005]), 8) / 100,
@@ -123,4 +126,5 @@ TAGDP_public %>%
     geom_text_repel(colour = "steelblue", family = TheFont) +
     scale_x_log10("Real GDP in 2013 ($m, logarithmic scale)", breaks = c(1, 3.3, 10, 33)) +
     scale_y_continuous("Eight year average growth rate", label = percent)
+)
 dev.off()

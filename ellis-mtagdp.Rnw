@@ -1,8 +1,9 @@
 \documentclass{article}
+\usepackage[hyphens]{url}
 \usepackage{hyperref}
 \usepackage[superscript,biblabel]{cite}
-\usepackage{fontspec}
-\setmainfont[Ligatures=TeX]{Calibri}
+%\usepackage{fontspec}
+%\setmainfont[Ligatures=TeX]{Calibri}
 
 \title{Modelled Territorial Authority Gross Domestic Product estimates for New Zealand}
 \author{Peter Ellis}
