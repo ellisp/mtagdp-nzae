@@ -47,7 +47,7 @@ print(
     geom_polygon() +
     coord_map() +
     mbie::theme_nothing(base_family = TheFont) +
-    scale_fill_gradientn("Growth per year",
+    scale_fill_gradientn("Growth per year\n",
                          colours = brewer.pal(8, "RdYlBu"), limits = c(-.1, .1),
                          label = percent) +
     theme(legend.position = c(0.2, 0.7))
@@ -64,17 +64,17 @@ gpp <- mtagdp_totals %>%
     select(-growth) %>%
     rename(FULLNAME = TA)
 
-tmp <- ta_simpl_gg %>%
+tmp2 <- ta_simpl_gg %>%
     left_join(gpp) %>%
     arrange(order)
 
 CairoPDF("figures/gdp-pp-map.pdf", 8, 8)
 print(
-ggplot(tmp, aes(x = long, y = lat, group = group, fill = cagr)) +
+ggplot(tmp2, aes(x = long, y = lat, group = group, fill = cagr)) +
     geom_polygon() +
     coord_map() +
     mbie::theme_nothing(base_family = TheFont) +
-    scale_fill_gradientn("Growth per year",
+    scale_fill_gradientn("Growth per year\n",
                          colours = brewer.pal(8, "RdYlBu"), limits = c(-.08, .08),
                          label = percent) +
     theme(legend.position = c(0.2, 0.7))
