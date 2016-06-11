@@ -16,12 +16,12 @@ x[is.na(x)] <- 0
 x <- t(scale(t(x)))
 
 CairoPDF("figures/ta-associations.pdf", 8, 8)
-par(family = TheFont)
+par(family = TheFont, cex = 0.9)
 plot(diana(x), which = 2, main = "", xlab = "", cex = 0.9)
 dev.off()
 
 CairoPDF("figures/industry-associations.pdf", 8, 11)
-par(family = TheFont)
+par(family = TheFont, cex = 0.8)
 plot(diana(t(x)), which.plots = 2, main = "", xlab = "", cex = 0.9)
 dev.off()
 

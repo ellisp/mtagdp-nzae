@@ -44,5 +44,5 @@ source("explore/modelling-ag.R")
 source("explore/pp-v-absolute-growth.R")
 source("explore/sankey.R")
 
-knit2pdf("ellis-mtagdp.Rnw")
+knit2pdf("ellis-mtagdp.Rnw", compiler = "XeLaTeX")
 
