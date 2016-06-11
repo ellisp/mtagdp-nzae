@@ -26,6 +26,7 @@ library(ggseas)
 library(riverplot)
 library(sqldf)
 library(devtools)
+library(igraph)
 install_github("nz-mbie/mbie-r-package-public/pkg")
 install_github("nz-mbie/mbiemaps-public/pkg")
 
@@ -43,6 +44,7 @@ source("explore/dot_ribbon.R")
 source("explore/modelling-ag.R")
 source("explore/pp-v-absolute-growth.R")
 source("explore/sankey.R")
+source("explore/commuting.R")
 
 knit2pdf("ellis-mtagdp.Rnw", compiler = "XeLaTeX")
 
