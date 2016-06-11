@@ -38,7 +38,7 @@ In 2014, the Ministry of Business, Innovation and Employment (MBIE) initiated a 
 
 \section{Method}
 \subsection{Overview}
-Estimation of MTAGDP is a two stage process.  Statistics New Zealand'sRGDP  estimates of Gross Domestic Product for 15 Regions (and regional groupings) for years ending in March are a key source, and the two stages of the method reflect the levels at which these statistics are available.  RGDP is published at a total GDP level to the year of publication minus one; and at a high level industry breakdown to current year minus three.
+Estimation of MTAGDP is a two stage process.  Statistics New Zealand's RGDP  estimates of Gross Domestic Product for 15 Regions (and regional groupings) for years ending in March are a key source, and the two stages of the method reflect the levels at which these statistics are available.  RGDP is published at a total GDP level to the year of publication minus one; and at a high level industry breakdown to current year minus three.
 
 \subsection{Scaling up to industry breakdowns}
 The first stage of estimation works to the RGDP industry totals for current year minus three, which is 2013 at the time of writing.  The data sources used at this stage are:
@@ -65,7 +65,7 @@ Alternatively, the method could be seen as taking the RGDP totals and allocating
 
 Technically, the employee numbers from the Business Demography Statistics are weighted by iterative proportional fitting so their marginal totals match the various marginal totals that can be derived from the three LEED tables.  This provides estimates of earnings at the desired level of granularity.  Then those estimates of earnings are weighted up to match the marginal totals derived from RGDP and NGDP; providing estimates of GDP or value added at the correct degree of granularity.
 
-The resulting top-down aspect of the process can be visualised in Figure \ref{fig:sankey}, which illustrates how the published RGDP figure for construction in Taranaki (\$305 million in 2013) is allocated out to the Territorial Authorities that overlap that region, and also to the more detailed NGDP level of industry.  This distribution is done on the basis of proportions of earnings from the LEED where they can be used to `spread out' RGDP to a finer level; with those LEED earnings themselves spread out proportionate to number of employees when necessary.
+The resulting top-down aspect of the process can be visualised in Figure \ref{fig:sankey}, a Sankey chart\cite{riverplot} which illustrates how the published RGDP figure for construction in Taranaki (\$305 million in 2013) is allocated out to the Territorial Authorities that overlap that region, and also to the more detailed NGDP level of industry.  This distribution is done on the basis of proportions of earnings from the LEED where they can be used to `spread out' RGDP to a finer level; with those LEED earnings themselves spread out proportionate to number of employees when necessary.
 
 The bulk of the work in the project was in managing concordances and classifications across the various data sources.  For example, Territorial Authorities are not strictly hierarchically organised under Regional Councils.  Rather, the two classifications have a many-to-many relationship that needed to be carefully handled.  All the datasets had slightly different geographic and industry classifications.  
 
@@ -109,10 +109,10 @@ More specifically, the Regional GDP Tier 1 statistic gives GDP for a given indus
 National GDP confronted with the LEED provides reliable earning to GDP ratios for the 56 industries available in the National GDP series.  Regional GDP confronted with LEED provides such ratios for 17 higher-level industries at the Regional Council level.  To allocate GDP to the more detailed industries in Regions and Territorial Authority we need to assume not that the ratios in each region match the national ratios, but that the ratios for the detailed industry that make up a single higher level industry are the same \emph{in relative terms} around the country.  
 
 \subsubsection{Employee numbers a good indicator of earnings}
-For the earnings to GDP ratios mentioned above to mean anything, we need earnings estimates for the correct combination of variables.  When earnings data are not available at the required granularity (combination of Territorial Authority and 56 industries), but are available one level up (eg by Region and higher level industry) we rely on employee numbers from the Business Demography Statistics to allocate the earnings to the more detailed level while constraining all available LEED marginal totals to be met.  In effect, we rely on the ratio of employees to earnings being similar across a range of classification boundaries: Regional Council to Territorial Authority, and high level industry to more detailed industry.  This is a significant assumption across the detailed industry classifications and a potential area of improvement if a better data source could be fund.
+For the earnings to GDP ratios mentioned above to mean anything, we need earnings estimates for the correct combination of variables.  When earnings data are not available at the required granularity (combination of Territorial Authority and 56 industries), but are available one level up (eg by Region and higher level industry) we rely on employee numbers from the Business Demography Statistics to allocate the earnings to the more detailed level while constraining all available LEED marginal totals to be met.  In effect, we rely on the ratio of employees to earnings being similar across a range of classification boundaries: Regional Council to Territorial Authority, and high level industry to more detailed industry.  This is a significant assumption across the detailed industry classifications and a potential area of improvement if a better data source could be found.
 
 \subsubsection{Commuting patterns are not industry specific}
-Because the LEED data on earnings are only publicly available at this point in time based on place of residence (not place of work), we use commuting patterns reported in the 2013 census to shift a proportion of all earnings by Territorial Authority into the destination regions that commuting is reported to.  We have no data readily available to allow this to be done on an industry basis, so the implausible assumption that commuting patterns are the same ine ach industry is required.  One would expect that local service industries like hairdressing and small scale retail (ie the corner dairy) would experience less commuting than financial and professional services and public administration.  But data to improve on this assumption still needs to be integrated into the project.
+Because the LEED data on earnings are only publicly available based on place of residence (not place of work), we use commuting patterns reported in the 2013 census to shift a proportion of all earnings by Territorial Authority into the destination districts and cities to which commuting is reported.  We have no data readily available to allow this to be done on an industry basis, so the implausible assumption that commuting patterns are the same in each industry is required.  One would expect that local service industries like hairdressing and small scale retail (ie the corner dairy) would experience less commuting than financial and professional services and public administration.  But data to improve on this assumption still needs to be integrated into the project.
 
 \subsubsection{Commuting patterns haven't changed over time}
 For convenience, we used only the 2013 Census for the ``commuting correction'' mentioned above, and applied its correction factors to all years from 2000 to 2013 on an implausible assumption of stability in commuter patterns.  Clearly this could be improved on by using similar results from the 2000 and 2006 censuses for earlier years.
@@ -137,7 +137,7 @@ Figure \ref{fig:ribbon} illustrates high level results of the whole exercise, sh
 \includegraphics[width=\textwidth]{figures/pp-scatter.pdf}
 \end{figure}
 
-The apparent success of Opotiki (to pick just one example) might come as a surprise to some readers, so Figure \ref{fig:opotiki} provides an industry breakdown at the same level as provided in the Regional GDP.  Driving the estimate of the growing GDP in Opotiki is the growth in earnings reported in the LEED.  At an industry level, it is services industries that has apparently seen strong growth.
+The apparent success of Opotiki (to pick just one example) might come as a surprise to some readers, so Figure \ref{fig:opotiki} provides an industry breakdown at the same level as provided in the Regional GDP.  Driving the estimate of the growing GDP in Opotiki is the growth in earnings reported in the LEED.  At an industry level, it is services industries that have apparently seen strong growth.
 
 \begin{figure}[htb]
 \caption{Real GDP growth in Opotiki by high level industry}
@@ -170,7 +170,7 @@ Figure \ref{fig:ta-associations} applies DIvisive ANAlysis Clustering (``DIANA''
 
 Figure \ref{fig:ta-associations} shows some interesting associations.  The first splinter group constitues Kawerau and Carterton - two districts similar to each other in profile, despite lack of proximity.  Both are rural districts with a noticeable localised manufacturing sector.
 
-Other clusterings will be unsurprising; for example, at the bottom left of Figure  \ref{fig:ta-associations} we see a group of districts - Ashburton, Kaipara, Otorohanga, Southland, Waimata, Matamata-Piako, Waipa, Manawatu and Selwyn - spread around the country but with strong dairy sectors.  The easiest way to confirm what these districts have in common is via the ``One area's top industries'' tab of the MTAGDP interactive web tool, to be described later in this article.
+Other clusterings will be unsurprising; for example, at the bottom left of Figure  \ref{fig:ta-associations} we see a group of districts - Ashburton, Kaipara, Otorohanga, Southland, Waimata, Matamata-Piako, Waipa, Manawatu and Selwyn - spread around the country but with strong dairy sectors.  The easiest way to confirm what these districts have in common is via the ``One area's top industries'' tab of the MTAGDP interactive web tool, to be described later in this paper.
 
 \begin{figure}
 \caption{Similarities of Territorial Authorities based on industry}
@@ -215,7 +215,7 @@ Between them, these variables will help us see (from one angle) if the industria
 
 I limited myself to two variables of interest due to the relatively small dataset.  Following model-building strategies set out by Harrell\cite{rmsbook}, with observations on 66 Territorial authorities, we have between 3 and 6 degrees of freedom to allocate to parameters before we are irretrievably over-fitting.  From previous experience with similar spatial data I suspect 3 or 4 effective degrees of freedom (at least) will be need to take into account spatial patterns in the randomness, leaving two fixed variables of interest my likely maximum. 
 
-These data can be envisaged as originally longitudinal or panel data.   The basic relationship is shown in Figure \ref{fig:agline}.  However, to make the modelling challenge tractable for demonstration purposes I simplify the longitudinal time series aspect of the data by creating a single ten year real GDP growth rate as the response variable.  I chose absolute growth for the response variable rather than growth per person because it is likely that population movements will follow economic success and failure - as we have already seen in the case of Queenstown.  In contrast, GDP per person at the snapshot moment of 2005 makes sense as an explanatory variable, standing in as a proxy for prosperity at the beginning of the period.
+These data can be envisaged as originally longitudinal or panel data.   The basic relationship is shown in Figure \ref{fig:agline}.  However, to simplify the modelling challenge for demonstration purposes, I reduce the longitudinal time series aspect of the data to a single ten year real GDP growth rate used as the response variable.  I chose absolute growth for the response variable rather than growth per person because it is likely that population movements will follow economic success and failure - as we have already seen in the case of Queenstown.  In contrast, GDP per person at the snapshot moment of 2005 makes sense as an explanatory variable, standing in as a proxy for prosperity at the beginning of the period.
 
 \begin{figure}
 \caption{Two economic characteristics in 2005 and GDP growth 2005 - 2015}
@@ -225,7 +225,7 @@ These data can be envisaged as originally longitudinal or panel data.   The basi
 
 The two key bivariate relationships of both agricultural focus and GDP per person in 2005 to subsequent economic growth is seen in Figure \ref{fig:scatter}, where we reduce growth from 2005 to 2013 to a single figure.  The robust lines of best fit shown are from a Huber M-estimator.\cite{MASS}
 
-Figure \ref{fig:spatial} is the spatial equivalent of Figure \ref{fig:scatter} in that it shows the relationship between latitude and longitude and 10 year economic growth, disregarding the other two variables in the model.  The colouring and contours are the predicted values.  It's immediately clear that there is an "island" effect - when smoothed out, ten year economic growth over the North Island of New Zealand has been substantially less than in the South Island.  
+Figure \ref{fig:spatial} is the spatial equivalent of Figure \ref{fig:scatter} in that it shows the relationship between latitude and longitude and 10 year economic growth, disregarding the other two variables in the model.  The colouring and contours are the predicted values.  It's immediately clear that there is an ``island effect'' - when smoothed out, ten year economic growth over the North Island of New Zealand has been substantially less than in the South Island.  
 
 \begin{figure}
 \caption{Spatial patterns in GDP growth 2005 - 2015}
@@ -240,7 +240,7 @@ One approach that is relatively simple to implement is to include spatial coordi
 
 To choose how I allocate degrees of freedom I use the generalised Spearman $\rho^2$ which is an extension of Spearman's $\rho$ rank correlation.  Generalised Spearman $\rho^2$ is the ordinary $R^2$ from predicting the rank of $Y$ based on the rank of $X$ and the square of the rank of $X$.\cite{rmsbook}.  It can detect the strength of nonlinear and nonmonotonic relationships and is an effective way of identifying the importance of explanatory variables that we have already committed to including in the model.  
 
-The results of this pre-model-fitting analysis, calculated with the aid of Harrell's \verb|rms| R package,\cite{rms} are shown in Figure \ref{fig:spearman}.  The relationship between our two economic explanatory variables and ten year growth rates look to be extremely weak.  In contrast, the relationship with the spatial variables is strong.  We cannot afford more than a single degree of freedom each for our two economic variables, so in our modelling we constrain the relationship between them and economic growth to be linear.  We use our four remaining degrees of freedom for a flexible spline based on the interaction of longitude and latitude.
+The results of this pre-model-fitting analysis, calculated with the aid of Harrell's \verb|rms| R package,\cite{rms} are shown in Figure \ref{fig:spearman}.  The relationships between our two economic explanatory variables and ten year growth rates look to be extremely weak.  In contrast, the relationship with the spatial variables is strong.  We cannot afford more than a single degree of freedom each for our two economic variables, so in our modelling we constrain the relationship between them and economic growth to be linear.  We use our four remaining degrees of freedom for a flexible spline based on the interaction of longitude and latitude.
 
 The model can be represented as follows:
 
@@ -277,8 +277,16 @@ We can have some confidence that the conclusions from the model are justified on
 \clearpage
 \section{Final comments}
 \subsection{Future work}
-A range of further work is on the drawing board for improving the method of creating these modelled estimates.
+A range of further work is possible to improve the method of creating these modelled estimates.
 
+\begin{itemize}
+    \item Experiments are under way with data from the LEED aggregated by place of work, rather than place of residence.  If this becomes available at the right level of classification, it would replace the need for a ``commuting correction'' step and materially improve the validity of the estimates.
+    \item If the above improvement isn't possible, the ``commuting correction'' could still be improved by making use of the 2000 and 2006 censuses (in addition to the 2013 Census currently in use), and possibly by estimation of industry-specific commuting factors.
+    \item The industry-level estimates stop at current year minus three.  It might be possible to forecast at the industry level through to current year minus one, possibly by leveraging new data sources not yet integrated into the project.
+    \item A range of existing regional price data could be incorporated to improve the calculation of real GDP by location.
+\end{itemize}
+
+Further work could involve entirely new projects, for example the development of regional expenditure or income estimates to complement these measures of production.
 
 \subsection{Accessing the data}
 There are currently three main methods of accessing the data.  
@@ -286,13 +294,13 @@ There are currently three main methods of accessing the data.
 The primary access point is the web application developed for the purpose using the \verb|Shiny| framework,\cite{shiny} available at \url{http://www.mbie.govt.nz/info-services/sectors-industries/regions-cities/research/modelled-territorial-authority-gross-domestic-product/interactive-web-tool}.  A screenshot from this web app is provided at Figure \ref{webapp}.  It allows the user to easily do all the most commonly expected slices and dices and charts from the data including:
 
 \begin{itemize}
-    \item Time series plots of total GDP or selected industry for selected Territorial Authorities and / or New Zealand
-    \item Ability to adjust for population or inflation
-    \item Represent time series as an index rather than in dollar terms, to make it easier to compare across industries and Territorial Authorities
-    \item Show a dot chart of growth rates rather than time series line charts
-    \item A detailed look at the top industries in a selected region, showing change over time as illustrated in Figure \ref{webapp}
-    \item Machine-generated commentary on the chosen Territorial Authority's distincitve industries, most important and fastest growing industries, and the other Territorial Authorities it most closely resembles.
-    \item Scatter plots of industry GDP, comparing two industries with each point representing a Territorial Authority and ability to choose between absolute dollars or proportion of the economy shown on each axis
+    \item time series plots of total GDP or selected industry for selected Territorial Authorities and / or New Zealand;
+    \item ability to adjust for population or inflation;
+    \item represent time series as an index rather than in dollar terms, to make it easier to compare across industries and Territorial Authorities;
+    \item show a dot chart of growth rates rather than time series line charts;
+    \item a detailed look at the top industries in a selected region, showing change over time as illustrated in Figure \ref{webapp};
+    \item machine-generated commentary on the chosen Territorial Authority's distincitve industries, most important and fastest growing industries, and the other Territorial Authorities it most closely resembles;
+    \item scatter plots of industry GDP, comparing two industries with each point representing a Territorial Authority and ability to choose between absolute dollars or proportion of the economy shown on each axis.
 \end{itemize}
 
 \begin{figure}[hbt]
@@ -316,10 +324,10 @@ The source code that generated the final data from its sources is available as a
 \subsection{Re-use and further analysis}
 We hope that the data will be re-used extensively.  Inevitably flaws will be found in the method or in the details of the results.  Doubtless some interesting findings will turn out to be artefacts of the creation process.  However, other interesting findings will provide genuinely new insight into the regional aspects of New Zealand's economy.  The only way these issues can be teased out is through open scrutiny of the data and method.  MBIE welcomes constructive criticism and suggestions for improvement. 
 
-The source code of the analysis in this paper, in R and \LaTeX, is available at \url{https://github.com/ellisp/mtagdp-nzae}.
+The source code of the analysis in this paper, in R and \LaTeX, is available at \url{https://github.com/ellisp/mtagdp-nzae}.\cite{knitr}\cite{ggplot2} \cite{ggrepel} \cite{ggmap} \cite{directlabels} \cite{extrafont} \cite{ggseas}
 
 \subsection{Acknowledgements}
-The development of Modelled Territorial Authority GDP was a team effort from the Sector Trends team in Evidence, Monitoring and Governance Branch of the Ministry of Business, Innovation and Employment.  As well as myself, Franz Smith and James Hogan made important contributions to the method and to the code implementing it.  Twelve months into its life in late 2015 when it was languishing and facing possible relegation to the drawer of ``projects that never quite made it to production'', Dr Smith successfully took over management of the project and has pushed through all three data releases so far. Shaun McGirr, Senay Yasar-Saglam and Talosaga Talosaga made crucial contributions of peer review and quality control.
+The development of Modelled Territorial Authority GDP was a team effort from the Sector Trends team in Evidence, Monitoring and Governance Branch of the Ministry of Business, Innovation and Employment.  I was the lead designer and developer but Franz Smith and James Hogan made important contributions to the method and to the code implementing it.  Twelve months into its life in 2015 when it was languishing and facing possible relegation to the drawer of ``projects that never quite made it to production'', Dr Smith successfully took over management of the project and has pushed through all three data releases so far. Shaun McGirr, Senay Yasar Saglam and Talosaga Talosaga made crucial contributions of peer review and quality control.  MBIE's web services team have made their usual professional and timely contribution to the actual publication.
 
 The project was helped enormously by several fruitful seminars with NZIER and with the Statistics New Zealand National Accounts team, all of which provided valuable critical and constructive feedback and suggestions.  Statistics New Zealand generously provided a custom cut of their Regional GDP data at a lower level of granularity than normally published, which has become a crucial part of the process.  Statistics New Zealand also undertook a range of ``reality checks'' of the results, although MBIE bears all responsibility for the results (see next section).
 

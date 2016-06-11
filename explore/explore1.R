@@ -15,7 +15,7 @@ dimnames(x)[[1]] <- TAs
 x[is.na(x)] <- 0
 x <- t(scale(t(x)))
 
-CairoPDF("figures/ta-associations.pdf", 8, 8)
+CairoPDF("figures/ta-associations.pdf", 8, 10)
 par(family = TheFont, cex = 0.9)
 plot(diana(x), which = 2, main = "", xlab = "", cex = 0.9)
 dev.off()
