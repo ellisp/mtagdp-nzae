@@ -273,7 +273,7 @@ The primary access point is the web application developed for the purpose using 
 \begin{figure}[hbt]
 \caption{Modelled TAGDP web-app - district view}
 \label{webapp}
-\includegraphics[width=\textwidth]{figures/queenstown-screenshot.PNG}
+\includegraphics[width=\textwidth]{figures/queenstown-screenshot.png}
 \end{figure}
 
 Selected slices of the data have been incorporated into the internet versions of the Regional Economic Activity Report, available at \url{http://www.mbie.govt.nz/info-services/business/business-growth-agenda/regions}.  Both the web-app and the mobile-app feature some of the Modelled Territorial Authority GDP, including GDP and GDP per capita absolute values and growth rates, and selected industry perspectives such as Agriculture as a percentage of GDP.  A screenshot is shown in Figure \ref{rear}.
@@ -281,7 +281,7 @@ Selected slices of the data have been incorporated into the internet versions of
 \begin{figure}[hbt]
 \caption{Regional Economic Activity Report featuring MTAGDP}
 \label{rear}
-\includegraphics[width=\textwidth]{figures/web-rear-screenshot.PNG}
+\includegraphics[width=\textwidth]{figures/web-rear-screenshot.png}
 \end{figure}
 
 The data can be downloaded in full from \url{http://www.mbie.govt.nz/info-services/sectors-industries/regions-cities/research/modelled-territorial-authority-gross-domestic-product/data-download} and this is the recommended means of access for analysts seeking to do modelling or reshaping of data in their own tools.  Two separate rectangles of data are provided: by industry to 2013; and totals to 2015.  Details of the columns in the data are provided at the address referenced above.

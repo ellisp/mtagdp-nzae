@@ -1,5 +1,3 @@
-install_github("nz-mbie/mbie-r-package-public/pkg")
-install_github("nz-mbie/mbiemaps-public/pkg")
 try(detach("package:tidyr", unload = TRUE))
 try(detach("package:dplyr", unload = TRUE))
 library(MASS)
@@ -27,6 +25,9 @@ library(stringr)
 library(ggseas)
 library(riverplot)
 library(sqldf)
+library(devtools)
+install_github("nz-mbie/mbie-r-package-public/pkg")
+install_github("nz-mbie/mbiemaps-public/pkg")
 
 TheFont <- "Times New Roman"
 theme_set(theme_minimal(base_family = TheFont))
