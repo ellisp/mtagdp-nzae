@@ -41,6 +41,8 @@ tmp <- ta_simpl_gg %>%
     left_join(const) %>%
     arrange(order)
 
+lim <- ceiling(max(abs(range(tmp$cagr))) * 100) / 100
+
 CairoPDF("figures/construction-map.pdf", 8, 8)
 print(
     ggplot(tmp, aes(x = long, y = lat, group = group, fill = cagr)) +
@@ -48,15 +50,16 @@ print(
     coord_map() +
     mbie::theme_nothing(base_family = TheFont) +
     scale_fill_gradientn("Growth per year\n",
-                         colours = brewer.pal(8, "RdYlBu"), limits = c(-.1, .1),
-                         label = percent) +
+                         colours = brewer.pal(8, "RdYlBu"), limits = c(-lim, lim),
+                         label = percent, na.value = "black") +
     theme(legend.position = c(0.2, 0.7))
 )
 dev.off()
 
 
 #-------------gdp per capita since 2008------------
-load("data/mtagdp_totals.rda")
+
+lim <- ceiling(max(abs(range(tmp$cagr))) * 100) / 100
 gpp <- mtagdp_totals %>%
     group_by(TA) %>%
     summarise(growth = sum(GDP_real[Year == 2015]) / sum(GDP_real[Year == 2010]),
@@ -75,8 +78,8 @@ ggplot(tmp2, aes(x = long, y = lat, group = group, fill = cagr)) +
     coord_map() +
     mbie::theme_nothing(base_family = TheFont) +
     scale_fill_gradientn("Growth per year\n",
-                         colours = brewer.pal(8, "RdYlBu"), limits = c(-.08, .08),
-                         label = percent) +
+                         colours = brewer.pal(8, "RdYlBu"), limits = c(-lim, lim),
+                         label = percent, na.value = "black") +
     theme(legend.position = c(0.2, 0.7))
 )
 dev.off()

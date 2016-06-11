@@ -18,8 +18,6 @@ library(stargazer)
 library(xtable)
 library(rms)
 library(cluster)
-library(mbie)
-library(mbiemaps)
 library(RColorBrewer)
 library(stringr)
 library(ggseas)
@@ -29,14 +27,23 @@ library(devtools)
 library(igraph)
 install_github("nz-mbie/mbie-r-package-public/pkg")
 install_github("nz-mbie/mbiemaps-public/pkg")
+library(mbie)
+library(mbiemaps)
+
 
 TheFont <- "Times New Roman"
 theme_set(theme_minimal(base_family = TheFont))
 
+# load in the data (only once per session)
+if(!exists("TAGDP_public")){
+    TAGDP_public <- read.csv("http://www.mbie.govt.nz/info-services/sectors-industries/regions-cities/research/modelled-territorial-authority-gross-domestic-product/resolveuid/98debb063cb14ecbab0f018b7681e7f4",
+                   stringsAsFactors = FALSE)
+    mtagdp_totals <- read.csv("http://www.mbie.govt.nz/info-services/sectors-industries/regions-cities/research/modelled-territorial-authority-gross-domestic-product/resolveuid/b811fea8196c4d269c1d5ca973933c7c",
+                              stringsAsFactors = FALSE)
+    data(ta_simpl_gg) # from mbiemaps; TA boundaries
+}
 
-load("data/TAGDP_public.rda")
-load("data/mtagdp_totals.rda")
-data(ta_simpl_gg)
+
 
 
 source("explore/explore1.R")
@@ -46,5 +53,5 @@ source("explore/pp-v-absolute-growth.R")
 source("explore/sankey.R")
 source("explore/commuting.R")
 
-knit2pdf("ellis-mtagdp.Rnw", compiler = "XeLaTeX")
+knit2pdf("ellis-mtagdp.Rnw")
 

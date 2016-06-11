@@ -13,3 +13,5 @@ ellis-mtagdp.tex
 *.toc
 *.aux
 *.dvi
+ellis-mtagdp.bcf
+ellis-mtagdp.run.xml
