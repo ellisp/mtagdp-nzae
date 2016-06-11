@@ -119,20 +119,22 @@ lats <- seq(min(the_data$lat.centre) - 1, max(the_data$lat.centre) + 1, length =
 the_grid <- expand.grid(long.centre = longs, lat.centre = lats)
 the_grid$pred <- predict(model_spatial, newdata = the_grid)
 
-
-CairoPDF("figures/growth0513.pdf", 8, 6)
-print(direct.label(
-ggplot(the_grid, aes(x = long.centre, y = lat.centre, z = pred * 100)) +
+p_map <- ggplot(the_grid, aes(x = long.centre, y = lat.centre, z = pred * 100)) +
     geom_raster(aes(fill = pred), interpolate = TRUE) +
     geom_contour(aes(colour = ..level.. )) +
     borders("nz", colour = "grey20") +
     mbie::theme_nothing(base_family = TheFont) +
     coord_equal() +
-    scale_fill_gradientn("Average annual\ngrowth", colours = brewer.pal(8, "RdYlBu"), label = percent),
-method="bottom.pieces"
-))
+    scale_fill_gradientn("Average annual\ngrowth", colours = brewer.pal(8, "RdYlBu"), label = percent)
+
+CairoPDF("figures/growth0513.pdf", 8, 6)
+print(direct.label(p_map, method="bottom.pieces"))
 dev.off()
 
+# PNG version for tweeting
+png("figures/growth0513.png", 800, 600, res = 100)
+print(direct.label(p_map + ggtitle("Real GDP growth by District/City 2005 - 2015, smoothed"), method="bottom.pieces"))
+dev.off()
 
 
 p3 <- qqNormEnv(residuals(model)) + 
