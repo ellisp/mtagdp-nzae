@@ -125,7 +125,7 @@ p_map <- ggplot(the_grid, aes(x = long.centre, y = lat.centre, z = pred * 100)) 
     borders("nz", colour = "grey20") +
     mbie::theme_nothing(base_family = TheFont) +
     coord_equal() +
-    scale_fill_gradientn("Average annual\ngrowth", colours = brewer.pal(8, "RdYlBu"), label = percent)
+    scale_fill_gradientn("Average annual\ngrowth", colours = brewer.pal(8, "BuPu"), label = percent)
 
 CairoPDF("figures/growth0513.pdf", 8, 6)
 print(direct.label(p_map, method="bottom.pieces"))

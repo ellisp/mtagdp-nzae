@@ -101,8 +101,8 @@ if (nrow(TATots) > 1 | nrow(TAIndTots) != nrow(TATots)){
     # we don't want a plot at all if there's only one node going to one node - looks silly.
     
     plot(r, default_style = st, plot_area = 0.9)
-    grid.text(paste(the_region, the_ind), 0.5, 0.95,
-              gp = gpar(fontfamily = TheFont, fontface = "bold", fontsize = 17))
+    # grid.text(paste(the_region, the_ind), 0.5, 0.95,
+    #           gp = gpar(fontfamily = TheFont, fontface = "bold", fontsize = 17))
 }
 
 

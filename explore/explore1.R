@@ -28,7 +28,37 @@ dev.off()
 
 #===================maps=======================
 
-#-------------construction------------
+#-------------real gdp per capita since 2010------------
+
+
+gpp <- mtagdp_totals %>%
+    group_by(TA) %>%
+    summarise(growth = sum(GDP_real_perCapita[Year == 2015]) / sum(GDP_real_perCapita[Year == 2010]),
+              cagr = CAGR(growth, 5) / 100) %>%
+    select(-growth) %>%
+    rename(FULLNAME = TA)
+
+tmp2 <- ta_simpl_gg %>%
+    left_join(gpp) %>%
+    arrange(order)
+
+lim <- ceiling(max(abs(range(tmp2$cagr))) * 100) / 100
+
+CairoPDF("figures/gdp-pp-map.pdf", 8, 8)
+print(
+    ggplot(tmp2, aes(x = long, y = lat, group = group, fill = cagr)) +
+        geom_polygon(colour = "grey60") +
+        coord_map() +
+        mbie::theme_nothing(base_family = TheFont) +
+        scale_fill_gradientn("Growth per year\n",
+                             colours = brewer.pal(8, "RdYlBu"), limits = c(-lim, lim),
+                             label = percent, na.value = "black") +
+        theme(legend.position = c(0.2, 0.7))
+)
+dev.off()
+
+
+#-------------construction real GDP, not per capita------------
 const <- TAGDP_public %>%
     filter(RGDP_industry == "Construction") %>%
     group_by(TA) %>%
@@ -46,7 +76,7 @@ lim <- ceiling(max(abs(range(tmp$cagr))) * 100) / 100
 CairoPDF("figures/construction-map.pdf", 8, 8)
 print(
     ggplot(tmp, aes(x = long, y = lat, group = group, fill = cagr)) +
-    geom_polygon() +
+    geom_polygon(colour = "grey60") +
     coord_map() +
     mbie::theme_nothing(base_family = TheFont) +
     scale_fill_gradientn("Growth per year\n",
@@ -57,32 +87,6 @@ print(
 dev.off()
 
 
-#-------------gdp per capita since 2008------------
-
-lim <- ceiling(max(abs(range(tmp$cagr))) * 100) / 100
-gpp <- mtagdp_totals %>%
-    group_by(TA) %>%
-    summarise(growth = sum(GDP_real[Year == 2015]) / sum(GDP_real[Year == 2010]),
-              cagr = CAGR(growth, 5) / 100) %>%
-    select(-growth) %>%
-    rename(FULLNAME = TA)
-
-tmp2 <- ta_simpl_gg %>%
-    left_join(gpp) %>%
-    arrange(order)
-
-CairoPDF("figures/gdp-pp-map.pdf", 8, 8)
-print(
-ggplot(tmp2, aes(x = long, y = lat, group = group, fill = cagr)) +
-    geom_polygon() +
-    coord_map() +
-    mbie::theme_nothing(base_family = TheFont) +
-    scale_fill_gradientn("Growth per year\n",
-                         colours = brewer.pal(8, "RdYlBu"), limits = c(-lim, lim),
-                         label = percent, na.value = "black") +
-    theme(legend.position = c(0.2, 0.7))
-)
-dev.off()
 
 
 #=============Opotiki===============

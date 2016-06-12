@@ -126,13 +126,13 @@ Figure \ref{fig:ribbon} illustrates high level results of the whole exercise, sh
 % better would be if the Selwyn and Queenstown numbers were programmatically generated
 
 \begin{figure}[htb]
-\caption{Ten year average real growth in per person GDP to 2015}
+\caption{Average real growth in per person GDP 2005 to 2015}
 \label{fig:ribbon}
 \includegraphics[width=\textwidth]{figures/dotplot_growth.pdf}
 \end{figure}
 
 \begin{figure}[htb]
-\caption{Ten year average growth rates: per person and absolute}
+\caption{Average growth rates 2005 to 2015: per person and absolute}
 \label{fig:pp-scatter}
 \includegraphics[width=\textwidth]{figures/pp-scatter.pdf}
 \end{figure}
@@ -145,19 +145,19 @@ The apparent success of Opotiki (to pick just one example) might come as a surpr
 \includegraphics[width=\textwidth]{figures/opotiki.pdf}
 \end{figure}
 
-Data of this sort aggregated by statistical or political boundaries lends itself to representation in a choropleth map, so Figures \ref{fig:gdp-pp-map} and \ref{fig:construction-map} illustrate this.  Of limited value analytically, such maps are useful for raising awareness of results and of the mere existence of data
+Data of this sort aggregated by statistical or political boundaries lends itself to representation in a choropleth map, so Figures \ref{fig:gdp-pp-map} and \ref{fig:construction-map} illustrate this.  Of limited value analytically, such maps are useful for raising awareness of results and of the mere existence of data.
 
 Visually very similar despite covering different time periods and different slices of data (one showing total GDP and one just construction), Figures \ref{fig:gdp-pp-map} and \ref{fig:construction-map} tell a joint story of economic growth stronger in the South Island than in the north over the space of a decade or so.
 
 \begin{figure}
-\caption{Five year average real growth in per person GDP to 2015}
+\caption{Average real growth in per person GDP 2010 to 2015}
 \label{fig:gdp-pp-map}
 \includegraphics[width=\textwidth]{figures/gdp-pp-map.pdf}
 \end{figure}
 
 
 \begin{figure}
-\caption{Ten year average real growth in construction GDP to 2013}
+\caption{Average real growth in construction GDP 2003 to 2013}
 \label{fig:construction-map}
 \includegraphics[width=\textwidth]{figures/construction-map.pdf}
 \end{figure}
@@ -262,7 +262,7 @@ The Generalized Additive Model was fit with the \verb|gam| function from the \ve
 
 \input{tables/gam-hand-edited.tex}
 
-Figure \ref{fig:residuals} shows two diagnostic plots for the final model.  The top graphic compares the actual distribution of residuals to the values they should have under a theoretical Normal distribution, and we see that the error terms are approximately normally distributed as was assumed.  The background ribbon in the top graphic shows simulations of 19 genuinely Normally distributed variables as reference.  The bottom graphic aims to detect un-modelled shape in the residuals, and similarly can be interpreted as ``no obvious problems here''
+Figure \ref{fig:residuals} shows two diagnostic plots for the final model.  The top graphic compares the actual distribution of residuals to the values they should have under a theoretical Normal distribution, and we see that the error terms are approximately normally distributed as was assumed.  The background ribbon in the top graphic shows simulations of 19 genuinely Normally distributed variables as reference.  The bottom graphic aims to detect un-modelled shape in the residuals, and similarly can be interpreted as ``no obvious problems here''.
 
 We can have some confidence that the conclusions from the model are justified on the basis of the evidence before us; and report that we have found no evidence that the 2005 values for GDP per person or industrial focus on agriculture had an impact on subsequent economic growth.
 
@@ -299,7 +299,7 @@ The primary access point is the web application developed for the purpose using 
     \item represent time series as an index rather than in dollar terms, to make it easier to compare across industries and Territorial Authorities;
     \item show a dot chart of growth rates rather than time series line charts;
     \item a detailed look at the top industries in a selected region, showing change over time as illustrated in Figure \ref{webapp};
-    \item machine-generated commentary on the chosen Territorial Authority's distincitve industries, most important and fastest growing industries, and the other Territorial Authorities it most closely resembles;
+    \item machine-generated commentary on the chosen Territorial Authority's distinctive industries, most important and fastest growing industries, and the other Territorial Authorities it most closely resembles;
     \item scatter plots of industry GDP, comparing two industries with each point representing a Territorial Authority and ability to choose between absolute dollars or proportion of the economy shown on each axis.
 \end{itemize}
 
@@ -322,12 +322,12 @@ The data can be downloaded in full from \url{http://www.mbie.govt.nz/info-servic
 The source code that generated the final data from its sources is available as a GitHub repository at \url{https://github.com/nz-mbie/MTAGDP}.  
 
 \subsection{Re-use and further analysis}
-We hope that the data will be re-used extensively.  Inevitably flaws will be found in the method or in the details of the results.  Doubtless some interesting findings will turn out to be artefacts of the creation process.  However, other interesting findings will provide genuinely new insight into the regional aspects of New Zealand's economy.  The only way these issues can be teased out is through open scrutiny of the data and method.  MBIE welcomes constructive criticism and suggestions for improvement. 
+We hope that the data will be re-used extensively.  Inevitably areas for improvement will be found in the method or flaws in the details of the results.  Doubtless some interesting findings will turn out to be artefacts of the creation process.  However, other interesting findings will provide genuinely new insight into the regional aspects of New Zealand's economy.  The only way these issues can be teased out is through open scrutiny of the data and method.  MBIE welcomes constructive criticism and suggestions for improvement. 
 
 The source code of the analysis in this paper, in R and \LaTeX, is available at \url{https://github.com/ellisp/mtagdp-nzae}.\cite{knitr}\cite{ggplot2} \cite{ggrepel} \cite{ggmap} \cite{directlabels} \cite{extrafont} \cite{ggseas}
 
 \subsection{Acknowledgements}
-The development of Modelled Territorial Authority GDP was a team effort from the Sector Trends team in Evidence, Monitoring and Governance Branch of the Ministry of Business, Innovation and Employment.  I was the lead designer and developer but Franz Smith and James Hogan made important contributions to the method and to the code implementing it.  Twelve months into its life in 2015 when it was languishing and facing possible relegation to the drawer of ``projects that never quite made it to production'', Dr Smith successfully took over management of the project and has pushed through all three data releases so far. Shaun McGirr, Senay Yasar Saglam and Talosaga Talosaga made crucial contributions of peer review and quality control.  MBIE's web services team have made their usual professional and timely contribution to the actual publication.
+The development of Modelled Territorial Authority GDP was a team effort from the Sector Trends team in Evidence, Monitoring and Governance Branch of the Ministry of Business, Innovation and Employment.  I was the lead designer and developer but Franz Smith made important contributions to the method and to the code implementing it.  Twelve months into its life in 2015 when it was languishing and facing possible relegation to the drawer of ``projects that never quite made it to production'', Dr Smith successfully took over management of the project and has pushed through all three data releases so far. Shaun McGirr, Senay Yasar Saglam, Talosaga Talosaga and James Hogan made crucial contributions of peer review and quality control, both conceptually and in matters of detail.  MBIE's web services team have made their usual professional and timely contribution to the actual publication.
 
 The project was helped enormously by several fruitful seminars with NZIER and with the Statistics New Zealand National Accounts team, all of which provided valuable critical and constructive feedback and suggestions.  Statistics New Zealand generously provided a custom cut of their Regional GDP data at a lower level of granularity than normally published, which has become a crucial part of the process.  Statistics New Zealand also undertook a range of ``reality checks'' of the results, although MBIE bears all responsibility for the results (see next section).
 
