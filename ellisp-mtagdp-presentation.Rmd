@@ -58,4 +58,21 @@ output:
 
 ![commuting](Figures/commuting.svg)
 
+## Key assumptions
+
+- Earnings a good indicator of value added
+- Employee numbers a good indicator earnings
+- No interaction between TA and earnings:GDP ratio for specified industry
+- No interation between Region/TA and inter-industry relative earnings:GDP ratios  of industries
+- Commuter patterns unchanging and not industry-specific
+- Price movements not industry-specific
+
+# Accessing the data
+
+
+# Example analysis
+
+
+
+
 
