@@ -5,7 +5,7 @@ date: "June 2016"
 output:
   revealjs::revealjs_presentation:
     fig_height: 6
-    theme: sky
+    theme: serif
     includes:
       in_header: header.css
 ---
@@ -87,7 +87,17 @@ output:
 
 # Example analysis
 
+## 
 
+![map1](figures/gdp-pp-map.svg)
+
+##
+
+![ta-assoc](figures/ta-associations.svg)
+
+##
+
+![ind-assoc](figures/industry-associations.svg)
 
 
 

@@ -26,6 +26,18 @@ plot(diana(t(x)), which.plots = 2, main = "", xlab = "", cex = 0.9)
 dev.off()
 
 
+
+svg("figures/ta-associations.svg", 11, 7)
+par(family = TheFont, cex = 0.9)
+plot(diana(x), which = 2, main = "", xlab = "", cex = 0.9)
+dev.off()
+
+svg("figures/industry-associations.svg", 11, 7)
+par(family = TheFont, cex = 0.8)
+plot(diana(t(x)), which.plots = 2, main = "", xlab = "", cex = 0.9)
+dev.off()
+
+
 #===================maps=======================
 
 #-------------real gdp per capita since 2010------------
@@ -44,18 +56,24 @@ tmp2 <- ta_simpl_gg %>%
 
 lim <- ceiling(max(abs(range(tmp2$cagr))) * 100) / 100
 
+map1 <- ggplot(tmp2, aes(x = long, y = lat, group = group, fill = cagr)) +
+    geom_polygon(colour = "grey60") +
+    coord_map() +
+    mbie::theme_nothing(base_family = TheFont) +
+    scale_fill_gradientn("Growth per year\n",
+                         colours = brewer.pal(8, "RdYlBu"), limits = c(-lim, lim),
+                         label = percent, na.value = "black") +
+    theme(legend.position = c(0.2, 0.7))
+
+
 CairoPDF("figures/gdp-pp-map.pdf", 8, 8)
-print(
-    ggplot(tmp2, aes(x = long, y = lat, group = group, fill = cagr)) +
-        geom_polygon(colour = "grey60") +
-        coord_map() +
-        mbie::theme_nothing(base_family = TheFont) +
-        scale_fill_gradientn("Growth per year\n",
-                             colours = brewer.pal(8, "RdYlBu"), limits = c(-lim, lim),
-                             label = percent, na.value = "black") +
-        theme(legend.position = c(0.2, 0.7))
-)
+print(map1)
 dev.off()
+
+svg("figures/gdp-pp-map.svg", 7, 7)
+print(map1 + ggtitle("Real GDP per capita growth 2010-2015"))
+dev.off()
+
 
 
 #-------------construction real GDP, not per capita------------
