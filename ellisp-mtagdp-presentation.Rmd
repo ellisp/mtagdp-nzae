@@ -45,7 +45,7 @@ output:
 
 ## {data-transition="fade-in"}
 
-![sankey](Figures/sankey_taranakiConstruction.svg)
+![sankey](figures/sankey_taranakiConstruction.svg)
 
 
 ## Commuter correction {data-transition="fade-out"}
@@ -56,7 +56,7 @@ output:
 
 ## {data-transition="fade-in"}
 
-![commuting](Figures/commuting.svg)
+![commuting](figures/commuting.svg)
 
 ## Key assumptions
 
@@ -68,6 +68,19 @@ output:
 - Price movements not industry-specific
 
 # Accessing the data
+
+## 
+
+![rear](figures/web-rear-screenshot2.png)
+
+##
+
+![webtool](figures/queenstown-snapshot.png)
+
+##
+
+![download](figures/download-snapshot.png)
+
 
 
 # Example analysis
