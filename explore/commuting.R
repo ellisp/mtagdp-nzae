@@ -56,3 +56,11 @@ draw_plot <- function(seed = 125){
 CairoPDF("Figures/commuting.pdf", 8.3, 8.3)
 draw_plot()
 dev.off()
+
+svg("Figures/commuting.svg", 8.3, 6.7)
+draw_plot()
+dev.off()
+
+
+
+

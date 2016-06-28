@@ -1,0 +1,61 @@
+---
+title: "Modelled Territorial Authority  Gross Domestic Product for New Zealand" 
+author: "Peter Ellis"
+date: "June 2016"
+output:
+  revealjs::revealjs_presentation:
+    fig_height: 6
+    theme: sky
+    includes:
+      in_header: header.css
+---
+
+## Today's content
+
+- Modelling TA GDP
+- Accessing the data
+- Taster example analysis
+
+# Modelling TA GDP
+
+## The Challenge
+
+- Consistent with National and Regional Tier 1 GDP
+- Detailed data available for re-use
+- Source code and method open for critique and improvement
+- Easy interactive access
+
+## The data
+
+- Business Demography Statistics
+- Linked Employer - Employee Database
+- RGDP and NGDP
+
+## The method (bottom up)
+
+- reconcile the various earnings measures
+- scale up employee numbers to earnings
+- scale up earnings to GDP
+
+## The method (alternative, top down version)
+
+- reconcile the two GDP measures
+- allocate any ambiguity on basis of earnings
+- allocate any remaining ambiguity on basis of employees
+
+## {data-transition="fade-in"}
+
+![sankey](Figures/sankey_taranakiConstruction.svg)
+
+
+## Commuter correction {data-transition="fade-out"}
+
+- earnings only published by place of residence
+- use the Census 2013 to reallocate earnings on basis of commuting
+- known area for future improvement
+
+## {data-transition="fade-in"}
+
+![commuting](Figures/commuting.svg)
+
+

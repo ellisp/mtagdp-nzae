@@ -29,10 +29,11 @@ install_github("nz-mbie/mbie-r-package-public/pkg")
 install_github("nz-mbie/mbiemaps-public/pkg")
 library(mbie)
 library(mbiemaps)
-
+library(rmarkdown)
 
 TheFont <- "Times New Roman"
 theme_set(theme_minimal(base_family = TheFont))
+update_geom_defaults("text",   list(family = TheFont))
 
 # load in the data (only once per session)
 if(!exists("TAGDP_public")){
@@ -54,4 +55,4 @@ source("explore/sankey.R")
 source("explore/commuting.R")
 
 knit2pdf("ellis-mtagdp.Rnw")
-
+render("ellisp-mtagdp-presentation.Rmd")

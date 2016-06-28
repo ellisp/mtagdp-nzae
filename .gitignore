@@ -15,3 +15,5 @@ ellis-mtagdp.tex
 *.dvi
 ellis-mtagdp.bcf
 ellis-mtagdp.run.xml
+*.svg
+*.html
