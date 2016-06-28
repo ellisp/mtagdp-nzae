@@ -14,7 +14,7 @@ output:
 
 - Modelling TA GDP
 - Accessing the data
-- Taster example analysis
+- Example analysis
 
 # Modelling TA GDP
 
@@ -91,13 +91,57 @@ output:
 
 ![map1](figures/gdp-pp-map.svg)
 
-##
+## Clustering TAs
 
 ![ta-assoc](figures/ta-associations.svg)
 
-##
+## Clustering industries
 
 ![ind-assoc](figures/industry-associations.svg)
 
 
+# More detailed example
 
+## Question
+
+Do either of this variables in 2005 have an impact on the next ten years of growth:
+
+* Agricultural importance
+* GDP per capita
+
+##
+![aglines](figures/ag-growth-line.svg)
+
+##
+![agdot](figures/dotcagr10.svg)
+
+##
+![scatter](figures/scatter-2005-v-growth.svg)
+
+
+## Modelling approach
+
+- Generalized additive model
+- Degrees of freedom allocated to variables based on strength of Spearman $\rho^2$
+- Smoothed two dimensional spline to control for spatial correlation
+
+## Strength of relationships
+![spearman](figures/spearman.svg)
+
+
+##
+$$
+GDPGrowth_i = \beta_0 + \beta_1 \times PropAg2005 +\\ \beta_2 \times GDPpp2005 + \beta_3 \times s(lat, long, 5) + \epsilon_i$$
+
+- no evidence of an agriculture in 2005 effect
+- no evidence of a GDP per capita in 2005 effect
+- strong spatial effect
+
+## The spatial effect
+![contourmap](figures/growth0513.svg)
+
+## Today's content {data-background="growth0513.svg"}
+
+- Modelling TA GDP
+- Accessing the data
+- Example analysis

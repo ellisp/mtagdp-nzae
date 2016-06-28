@@ -14,16 +14,24 @@ totals <- mtagdp_totals %>%
 combined <- totals %>%
     left_join(snapshot_2005)
 
-CairoPDF("figures/ag-growth-line.pdf", 8, 5)
-print(ggplot(combined, aes(x = Year, y = GDP_real, colour = Ag2005, group = TA)) +
+
+aglines <- ggplot(combined, aes(x = Year, y = GDP_real, colour = Ag2005, group = TA)) +
     stat_index(index.ref = 6, geom = "point") +
     stat_index(index.ref = 6, geom = "line") +
     scale_colour_gradientn("Proportion Agriculture in 2005",
-                         colours = brewer.pal(8, "RdYlBu"),
-                         label = percent) +
+                           colours = brewer.pal(8, "RdYlBu"),
+                           label = percent) +
     labs(y = "Real GDP (index: 2005 = 100)") +
-    theme(legend.position = "top"))
+    theme(legend.position = "top")
+
+CairoPDF("figures/ag-growth-line.pdf", 8, 5)
+print(aglines)
 dev.off()
+
+svg("figures/ag-growth-line.svg", 9, 7)
+print(aglines)
+dev.off()
+
 
 
 the_data <- combined %>%
@@ -38,9 +46,7 @@ the_data <- combined %>%
            TA = gsub(" City", "", TA),
            outlier = ifelse(CAGR10 > 0.05 | CAGR10 < -0.02, TA, ""))
 
-CairoPDF("figures/dotcagr10.pdf", 7, 9)
-print(
-the_data %>%
+agdot <- the_data %>%
     arrange(CAGR10) %>%
     mutate(TA = factor(TA, levels = TA)) %>%
     ggplot(aes(x = CAGR10, colour = Ag2005, y = TA) ) +
@@ -50,15 +56,22 @@ the_data %>%
     geom_text(aes(label = TA, x = CAGR10 + 0.003), colour = "grey50", 
               hjust = 0, vjust = 0.5, size = 2, family = TheFont) +
     scale_colour_gradientn("Proportion\nAgriculture\nin 2005",
-                       colours = brewer.pal(8, "RdYlBu"),
-                       label = percent) +
+                           colours = brewer.pal(8, "RdYlBu"),
+                           label = percent) +
     scale_x_continuous("", label = percent) +
     labs(y = "") +
     theme_tufte(base_family = TheFont) +
     theme(axis.text.y = element_blank(),
           axis.line.y = element_blank())
-)
+
+CairoPDF("figures/dotcagr10.pdf", 7, 9)
+print(agdot)
 dev.off()
+
+svg("figures/dotcagr10.svg", 8, 7.3)
+print(agdot)
+dev.off()
+
 
 p1 <- ggplot(the_data, aes(x = Ag2005, y = CAGR10)) +
     geom_point(aes(colour = Ag2005))  +
@@ -83,6 +96,11 @@ CairoPDF("figures/scatter-2005-v-growth.pdf", 10, 5)
     grid.arrange(p1, p2, ncol = 2)
 dev.off()
 
+svg("figures/scatter-2005-v-growth.svg", 10, 6.5)
+grid.arrange(p1, p2, ncol = 2)
+dev.off()
+
+
 
 # how many degrees of freedom for each variable
 sp2 <- spearman2(CAGR10 ~ Ag2005 + GDPpp2005 + long.centre + lat.centre, data = the_data)
@@ -91,6 +109,13 @@ CairoPDF("figures/spearman.pdf", 8, 3.5)
 par(family = TheFont, bty = "l")
 plot(sp2)
 dev.off()
+
+svg("figures/spearman.svg", 8, 4.5)
+par(family = TheFont, bty = "l")
+plot(sp2)
+dev.off()
+
+
 model <- gam(CAGR10 ~ Ag2005 + GDPpp2005 + s(long.centre, lat.centre, k = 5), data = the_data)
 
 anova(model)
@@ -136,6 +161,9 @@ png("figures/growth0513.png", 800, 600, res = 100)
 print(direct.label(p_map + ggtitle("Real GDP growth by District/City 2005 - 2015, smoothed"), method="bottom.pieces"))
 dev.off()
 
+svg("figures/growth0513.svg", 8, 6)
+print(direct.label(p_map + ggtitle("Real GDP growth by District/City 2005 - 2015, smoothed"), method="bottom.pieces"))
+dev.off()
 
 p3 <- qqNormEnv(residuals(model)) + 
     coord_equal() +
