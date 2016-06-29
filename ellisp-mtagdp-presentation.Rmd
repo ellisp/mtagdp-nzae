@@ -29,7 +29,8 @@ output:
 
 - Business Demography Statistics
 - Linked Employer - Employee Database
-- RGDP and NGDP
+- Regional GDP
+- National GDP
 
 ## The method (bottom up)
 
@@ -54,11 +55,10 @@ output:
 - use the Census 2013 to reallocate earnings on basis of commuting
 - known area for future improvement
 
-## {data-transition="fade-in"}
+## {data-background="figures/commuting.svg"}
 
-![commuting](figures/commuting.svg)
 
-## Key assumptions
+## Assumptions
 
 - Earnings a good indicator of value added
 - Employee numbers a good indicator of earnings
@@ -66,6 +66,7 @@ output:
 - No interation between Region/TA and inter-industry relative earnings:GDP ratios  of industries
 - Commuter patterns unchanging and not industry-specific
 - Price movements not industry-specific
+- Price movements not region-specific
 
 # Accessing the data
 
@@ -91,14 +92,10 @@ output:
 
 ![map1](figures/gdp-pp-map.svg)
 
-## Clustering TAs
+## {data-background="figures/ta-associations.svg"}
 
-![ta-assoc](figures/ta-associations.svg)
 
-## Clustering industries
-
-![ind-assoc](figures/industry-associations.svg)
-
+## {data-background="figures/industry-associations.svg"}
 
 # More detailed example
 

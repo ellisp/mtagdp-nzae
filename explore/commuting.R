@@ -57,7 +57,7 @@ CairoPDF("Figures/commuting.pdf", 8.3, 8.3)
 draw_plot()
 dev.off()
 
-svg("Figures/commuting.svg", 8.3, 6.7)
+svg("Figures/commuting.svg", 13, 7.3)
 draw_plot()
 dev.off()
 
