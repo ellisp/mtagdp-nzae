@@ -68,8 +68,8 @@ CairoPDF("figures/dotcagr10.pdf", 7, 9)
 print(agdot)
 dev.off()
 
-svg("figures/dotcagr10.svg", 8, 7.3)
-print(agdot)
+svg("figures/dotcagr10.svg", 13, 7.3)
+print(agdot +labs(title = "Average annual real GDP growth 2005 - 2015"))
 dev.off()
 
 
@@ -96,7 +96,7 @@ CairoPDF("figures/scatter-2005-v-growth.pdf", 10, 5)
     grid.arrange(p1, p2, ncol = 2)
 dev.off()
 
-svg("figures/scatter-2005-v-growth.svg", 10, 6.5)
+svg("figures/scatter-2005-v-growth.svg", 13, 7.3)
 grid.arrange(p1, p2, ncol = 2)
 dev.off()
 

@@ -112,11 +112,9 @@ Do either of this variables in 2005 have an impact on the next ten years of grow
 ##
 ![aglines](figures/ag-growth-line.svg)
 
-##
-![agdot](figures/dotcagr10.svg)
+## {data-background="figures/dotcagr10.svg"}
 
-##
-![scatter](figures/scatter-2005-v-growth.svg)
+## {data-background="figures/scatter-2005-v-growth.svg"}
 
 
 ## Modelling approach
@@ -140,8 +138,4 @@ GDPGrowth_i = \beta_0 + \beta_1 \times PropAg2005 +\\ \beta_2 \times GDPpp2005 +
 ## The spatial effect
 ![contourmap](figures/growth0513.svg)
 
-## Today's content {data-background="growth0513.svg"}
-
-- Modelling TA GDP
-- Accessing the data
-- Example analysis
+## {data-background="figures/growth0513.svg"}
